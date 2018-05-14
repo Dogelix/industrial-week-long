@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _speedCap = 200.0f;
     [SerializeField]
-    private float _rotationForce = 3.0f;
+    private float _rotationForce = 1.0f;
     [SerializeField]
     private GamePad.Index _playerNumber;
 
@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        rigidbody = this.Find(GameTags.Player).GetComponent<Rigidbody>();
+        rigidbody = gameObject.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void Movement()
+    protected void Movement()
     {
         float step = 0;
 
