@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4632323527463076}
   - component: {fileID: 54890699066786282}
   - component: {fileID: 114564704023328526}
+  - component: {fileID: 114512141318760376}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -119,7 +120,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -204,6 +205,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848453646513564}
   m_Enabled: 1
+--- !u!114 &114512141318760376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821828806710822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17742b69720b02409e882b430b44271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114564704023328526
 MonoBehaviour:
   m_ObjectHideFlags: 1
