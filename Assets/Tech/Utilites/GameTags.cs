@@ -6,6 +6,7 @@ namespace Utilites
     {
         public const string Player = "Player";
         public const string Tower = "Tower";
+        public const string ScriptM = "ScriptManager";
     }
 
     public class InputTags : MonoBehaviour

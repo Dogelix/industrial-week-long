@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFunctions : MonoBehaviour {
+/*TO DO in this class:
+* 1. Keep track of lap
+* 2. Keep track of last checkpoint
+* 3. Store what towers the player has
+* 4. Figure out ranking
+*/
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class PlayerFunctions : MonoBehaviour
+{
+
 }
