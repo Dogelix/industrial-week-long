@@ -9,8 +9,8 @@ public class PlayerInput : MonoBehaviour
     private float _accelerationForce = 10.0f;
     [SerializeField]
     private float _rotationForce = 3.0f;
-
-    private GamePad.Index _playerNumber = GamePad.Index.One;
+    [SerializeField]
+    private GamePad.Index _playerNumber;
     private Rigidbody rigidbody;
 
 	// Use this for initialization
