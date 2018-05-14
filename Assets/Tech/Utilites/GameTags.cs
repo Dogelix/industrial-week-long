@@ -7,4 +7,11 @@ namespace Utilites
         public const string Player = "Player";
         public const string Tower = "Tower";
     }
+
+    public class InputTags : MonoBehaviour
+    {
+        public const string LeftRight = "Horizontal";
+        public const string Accelerate = "";
+        public const string QuadrantUp = "";
+    }
 }
