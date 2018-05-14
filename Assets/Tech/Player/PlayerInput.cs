@@ -8,9 +8,12 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _accelerationForce = 10.0f;
     [SerializeField]
+    private float _speedCap = 200.0f;
+    [SerializeField]
     private float _rotationForce = 3.0f;
     [SerializeField]
     private GamePad.Index _playerNumber;
+
     private Rigidbody rigidbody;
 
 	// Use this for initialization
@@ -45,5 +48,7 @@ public class PlayerInput : MonoBehaviour
         float rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
         rigidbody.AddTorque(0, rotation * _rotationForce, 0);
         rigidbody.AddForce(transform.forward * step);
+
+        rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, _speedCap);
     }
 }
