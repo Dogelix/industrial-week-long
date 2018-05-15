@@ -19,7 +19,7 @@ public class ProjectileTower : TurretBase
     {
     }
 
-    void Tick()
+    public override void Tick()
     {
         base.Tick();
         //Do projectile for static tower

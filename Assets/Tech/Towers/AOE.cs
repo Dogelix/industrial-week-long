@@ -16,7 +16,7 @@ public class AOE : TurretBase
 		
 	}
 
-    void Tick()
+    public override void Tick()
     {
         Debug.Log("TICK");
         //Do AOE
@@ -34,6 +34,7 @@ public class AOE : TurretBase
         {
             if (player.tag == GameTags.Player)
             {
+                Debug.Log("Player slowed");
                 player.SendMessage("SlowDown");
             }
         }
