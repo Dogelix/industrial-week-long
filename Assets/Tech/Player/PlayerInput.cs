@@ -16,16 +16,22 @@ public class PlayerInput : MonoBehaviour
     
     private bool _isReversed = false;
 
+    //Inventory Stuff
+    private TowerInventory _towerInv = null;
+    private GameObject[] _towers = new GameObject[4] { null, null, null, null };
+
 	// Use this for initialization
 	void Start ()
     {
         gameObject.GetComponent<CameraController>().SetUpCameraSize(_playerNumber, false);
+        _towerInv = gameObject.GetComponent<TowerInventory>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         Movement();
+        CheckForTowerPlace();
     }
 
     public GamePad.Index PlayerNumber
@@ -36,6 +42,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    #region Movement and Rotation
     public void Reverse(bool towerHit)
     {
         _isReversed = !_isReversed;
@@ -67,4 +74,29 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(time);
         Reverse(false);
     }
+    #endregion
+
+    #region Tower Spawning
+    public void AddTowerToInv(GameObject tower)
+    {
+        for (int i =0; i < 4; i++)
+        {
+            if(_towers[i] == null)
+            {
+                _towers[i] = tower;
+                break;
+            }
+        }
+    }
+
+    private void RemoveTower(int location)
+    {
+        _towers[location] = null;
+    }
+
+    private void CheckForTowerPlace()
+    {
+
+    }
+    #endregion
 }

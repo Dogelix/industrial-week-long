@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class TurretManager : MonoBehaviour {
+
+public class TowerInventory : MonoBehaviour {
+
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +15,8 @@ public class TurretManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
 }
+
+}
+
