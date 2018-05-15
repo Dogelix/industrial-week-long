@@ -11,5 +11,8 @@ using UnityEngine;
 
 public class PlayerFunctions : MonoBehaviour
 {
-
+    private void Start()
+    {
+        
+    }
 }
