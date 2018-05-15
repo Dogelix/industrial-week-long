@@ -7,12 +7,7 @@ namespace Utilites
         public const string Player = "Player";
         public const string Tower = "Tower";
         public const string ScriptM = "ScriptManager";
-    }
-
-    public class InputTags : MonoBehaviour
-    {
-        public const string LeftRight = "Horizontal";
-        public const string Accelerate = "";
-        public const string QuadrantUp = "";
+        public const string SpawnTower = "SpawnTower";
+        public const string SpawnBox = "SpawnBox";
     }
 }

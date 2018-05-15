@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Utilites;
+﻿using Utilites;
 
 public interface ITower
 {

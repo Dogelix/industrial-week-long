@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilites;
 
-public class Projectile : TurretBase
+public class ProjectileTower : TurretBase
 {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    GameObject[] players;
+    // Use this for initialization
+    void Start ()
+    {
+        players = GameObject.FindGameObjectsWithTag(GameTags.Player);
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+    }
 
     void Tick()
     {
@@ -28,19 +30,17 @@ public class Projectile : TurretBase
 
     public GameObject FollowClosestPlayer()
     {
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
+
         GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
+        float temp;
+        float curDistance = Mathf.Infinity;
         foreach (GameObject player in players)
         {
-            Vector3 diff = player.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
+            temp = Vector3.Distance(player.transform.position, transform.position);
+            if (temp < curDistance)
             {
                 closest = player;
-                distance = curDistance;
+                curDistance = temp;
             }
         }
         return closest;

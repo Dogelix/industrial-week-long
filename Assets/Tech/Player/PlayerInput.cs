@@ -8,13 +8,14 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _speed = 10.0f;
     [SerializeField]
-    private float _speedCap = 200.0f;
-    [SerializeField]
     private float _rotationForce = 1.0f;
     [SerializeField]
     private GamePad.Index _playerNumber;
     
     private bool _isReversed = false;
+
+    //Inventory Stuff
+    private GameObject[] _towers = new GameObject[4] { null, null, null, null };
 
 	// Use this for initialization
 	void Start ()
@@ -26,6 +27,7 @@ public class PlayerInput : MonoBehaviour
 	void Update ()
     {
         Movement();
+        CheckForTowerPlace();
     }
 
     public GamePad.Index PlayerNumber
@@ -36,6 +38,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    #region Movement and Rotation
     public void Reverse(bool towerHit)
     {
         _isReversed = !_isReversed;
@@ -67,4 +70,38 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(time);
         Reverse(false);
     }
+    #endregion
+
+    #region Tower Spawning
+    public void AddTowerToInv(GameObject tower)
+    {
+        for (int i =0; i < 4; i++)
+        {
+            if(_towers[i] == null)
+            {
+                _towers[i] = tower;
+                break;
+            }
+        }
+    }
+
+    private void RemoveTower(int location)
+    {
+        _towers[location] = null;
+    }
+
+    private void CheckForTowerPlace()
+    {
+        int i;
+
+        if(GamePad.GetButton(GamePad.Button.X, _playerNumber))
+            i = 0;
+        if (GamePad.GetButton(GamePad.Button.A, _playerNumber))
+            i = 1;
+        if (GamePad.GetButton(GamePad.Button.B, _playerNumber))
+            i = 2;
+        if (GamePad.GetButton(GamePad.Button.Y, _playerNumber))
+            i = 3;
+    }
+    #endregion
 }
