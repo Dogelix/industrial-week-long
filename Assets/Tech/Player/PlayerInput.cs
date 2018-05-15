@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     
     private bool _isReversed = false;
 
+    [SerializeField]
     //Inventory Stuff
     private GameObject[] _towers = new GameObject[4] { null, null, null, null };
 
@@ -92,7 +93,7 @@ public class PlayerInput : MonoBehaviour
 
     private void CheckForTowerPlace()
     {
-        int i;
+        int i = 5;
 
         if(GamePad.GetButton(GamePad.Button.X, _playerNumber))
             i = 0;
@@ -102,6 +103,14 @@ public class PlayerInput : MonoBehaviour
             i = 2;
         if (GamePad.GetButton(GamePad.Button.Y, _playerNumber))
             i = 3;
+
+        if (i <= 3 && _towers[i] != null)
+        {
+            GameObject temp = _towers[i];
+            _towers[i] = null;
+            TowerManager tM = this.Find<TowerManager>(GameTags.ScriptM);
+            tM.SpawnTower(temp, _playerNumber);            
+        }
     }
     #endregion
 }
