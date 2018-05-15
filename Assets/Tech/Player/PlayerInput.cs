@@ -8,8 +8,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _speed = 10.0f;
     [SerializeField]
-    private float _speedCap = 200.0f;
-    [SerializeField]
     private float _rotationForce = 1.0f;
     [SerializeField]
     private GamePad.Index _playerNumber;
@@ -17,14 +15,12 @@ public class PlayerInput : MonoBehaviour
     private bool _isReversed = false;
 
     //Inventory Stuff
-    private TowerInventory _towerInv = null;
     private GameObject[] _towers = new GameObject[4] { null, null, null, null };
 
 	// Use this for initialization
 	void Start ()
     {
         gameObject.GetComponent<CameraController>().SetUpCameraSize(_playerNumber, false);
-        _towerInv = gameObject.GetComponent<TowerInventory>();
     }
 	
 	// Update is called once per frame
