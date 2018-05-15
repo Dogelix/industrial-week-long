@@ -18,10 +18,10 @@ public class AOE : TurretBase
 
     void Tick()
     {
-        base.Tick();
         Debug.Log("TICK");
         //Do AOE
         AreaOfEffect();
+        base.Tick();
     }
 
     void AreaOfEffect()

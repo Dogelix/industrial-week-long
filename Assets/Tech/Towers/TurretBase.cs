@@ -32,6 +32,7 @@ public class TurretBase : MonoBehaviour, ITower
     public void Tick()
     {
         //do things
+        Debug.Log("BASE TICK");
         DecrementHealth();
     }
 
