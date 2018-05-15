@@ -19,12 +19,14 @@ public class AOE : TurretBase
     void Tick()
     {
         base.Tick();
+        Debug.Log("TICK");
         //Do AOE
         AreaOfEffect();
     }
 
     void AreaOfEffect()
     {
+        Debug.Log("AOE");
         //Can tweak the radius (5) or put it in a variable later on when we know how far it will reach
         Collider[] hitPlayers = Physics.OverlapSphere(transform.position, 5.0f);
         //Do slow down effect on players, method name can be changed or code can be changed from SendMessage if needed

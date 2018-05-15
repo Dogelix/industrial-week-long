@@ -6,22 +6,15 @@ using Utilites;
 public class ProjectileTower : TurretBase
 {
     GameObject[] players;
-    [SerializeField]
-    bool isFollowing;
     // Use this for initialization
     void Start ()
     {
         players = GameObject.FindGameObjectsWithTag(GameTags.Player);
-        isFollowing = false;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (isFollowing)
-        {
-            transform.LookAt(FollowClosestPlayer().transform, Vector3.up);
-        }
     }
 
     void Tick()
@@ -30,14 +23,9 @@ public class ProjectileTower : TurretBase
         //Do projectile for static tower
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        isFollowing = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        isFollowing = false;
+        transform.LookAt(FollowClosestPlayer().transform, Vector3.up);
     }
 
     public GameObject FollowClosestPlayer()
