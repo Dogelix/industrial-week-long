@@ -92,7 +92,16 @@ public class PlayerInput : MonoBehaviour
 
     private void CheckForTowerPlace()
     {
+        int i;
 
+        if(GamePad.GetButton(GamePad.Button.X, _playerNumber))
+            i = 0;
+        if (GamePad.GetButton(GamePad.Button.A, _playerNumber))
+            i = 1;
+        if (GamePad.GetButton(GamePad.Button.B, _playerNumber))
+            i = 2;
+        if (GamePad.GetButton(GamePad.Button.Y, _playerNumber))
+            i = 3;
     }
     #endregion
 }

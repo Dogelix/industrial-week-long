@@ -6,12 +6,12 @@ using Utilites;
 public class TowerManager : MonoBehaviour
 {
     private List<GameObject> _towers = new List<GameObject>();
-    [SerializeField]
     private GameObject[] _spawnLocations;
 
     private void Start()
     {
         InvokeRepeating("DoTick", 0.0f, 1.0f);
+        _spawnLocations = GameObject.FindGameObjectsWithTag(GameTags.SpawnTower);
     }
 
     private void DoTick()
