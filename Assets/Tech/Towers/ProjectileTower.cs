@@ -71,7 +71,7 @@ public class ProjectileTower : TurretBase
         foreach (GameObject player in _players)
         {
             temp = Vector3.Distance(player.transform.position, transform.position);
-            if (temp < curDistance)
+            if (temp < curDistance /*&& (!OwnedByPlayer == player.GetComponent<PlayerInput>().PlayerNumber)*/)
             {
                 closest = player;
                 curDistance = temp;
