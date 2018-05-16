@@ -1,26 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilites;
 
-public class ProjectileBase : MonoBehaviour {
-
+public class ProjectileBase : MonoBehaviour
+{
+    protected int _damage;
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
-    public virtual void OnSpawnMove()
+    public virtual void OnSpawnMove(int damage)
     {
 
     }
 
-    public virtual void DealDamage()
+    public void DealDamage(Collider playerHit)
     {
-
+        //Damage method on player
+        //based on ETower, deal correct damage, if reverse tower do reverse, default break
     }
 }

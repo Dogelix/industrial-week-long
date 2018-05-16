@@ -58,6 +58,16 @@ ModelImporter:
     4300014: pCone2
     4300016: PolyWingR
     4300018: PolyWingL
+    6400000: pBody
+    6400002: pCone1
+    6400004: pCone2
+    6400006: pCone3
+    6400008: pCylinder1
+    6400010: pCylinder2
+    6400012: pCylinder3
+    6400014: pFin
+    6400016: PolyWingL
+    6400018: PolyWingR
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
@@ -92,11 +102,11 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 50
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

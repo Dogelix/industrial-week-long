@@ -18,8 +18,8 @@ public class RandomBoxScript : MonoBehaviour
         {
             temp = c.gameObject;
             temp.GetComponent<PlayerInput>().AddTowerToInv(_towers[Random.Range(0, _towers.Length)]);
-
             Destroy(gameObject);
+            this.Find<BoxManager>(GameTags.ScriptM).FreeUpSpawn(gameObject.transform.parent.gameObject);
         }
     }
 }

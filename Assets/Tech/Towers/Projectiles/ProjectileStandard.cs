@@ -1,22 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilites;
 
 public class ProjectileStandard : ProjectileBase
 {
-    int _damage;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
-    public override void DealDamage()
+    private void OnTriggerEnter(Collider other)
     {
-
+        if (other.tag == GameTags.Player)
+        {
+            DealDamage(other);
+        }
     }
 }
