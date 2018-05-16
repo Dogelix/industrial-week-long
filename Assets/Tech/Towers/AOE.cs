@@ -20,6 +20,7 @@ public class AOE : TurretBase
     public override void Tick()
     {
         //Do AOE
+        //Can do same modulo thing if want to slow down freeze effect
         AreaOfEffect();
         base.Tick();
     }
