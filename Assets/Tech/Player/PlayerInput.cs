@@ -8,11 +8,12 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _speed = 10.0f;
     [SerializeField]
+    [Range(0, 1)]
     private float _rotationForce = 1.0f;
     [SerializeField]
-    private float _maxTilt;
-    [SerializeField]
     private GamePad.Index _playerNumber;
+
+    private Rigidbody _rigidbody;
 
     private bool _isReversed = false;
     private bool _isSlowed = false;
@@ -25,6 +26,7 @@ public class PlayerInput : MonoBehaviour
 	void Start ()
     {
         gameObject.GetComponentInChildren<CameraController>().SetUpCameraSize(_playerNumber, false);
+        _rigidbody = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -32,6 +34,7 @@ public class PlayerInput : MonoBehaviour
     {
         Movement();
         CheckForTowerPlace();
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     public GamePad.Index PlayerNumber
@@ -59,25 +62,24 @@ public class PlayerInput : MonoBehaviour
 
     private void Movement()
     {
-        float step = 0;
+        float step = _speed;
         var trig = GamePad.GetTrigger(GamePad.Trigger.RightTrigger, _playerNumber);
         if (trig > 0)
         {
-            step = trig * _speed * Time.deltaTime;
-
             if (_isSlowed)
-                step = step / 2;
-
-            float rotation;
-            if (!_isReversed)
-                rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
-            else
-                rotation = -GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
-
-            transform.Rotate(Vector3.up, rotation * _rotationForce);
+                step = _speed / 2;            
         }
-        
-        transform.Translate(0, 0, 1 * step);   
+
+        float rotation;
+        if (!_isReversed)
+            rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
+        else
+            rotation = -GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
+
+        //transform.Rotate(Vector3.up, rotation * _rotationForce);
+        _rigidbody.AddTorque(0, rotation * _rotationForce, 0);
+        _rigidbody.AddForce(transform.forward * trig * step);
+        //transform.Translate(0, 0, 1 * step);   
     }
 
     private IEnumerator StartWaitForReverse(float time)
