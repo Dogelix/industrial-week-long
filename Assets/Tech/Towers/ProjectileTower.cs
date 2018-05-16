@@ -7,6 +7,8 @@ public class ProjectileTower : TurretBase
 {
     GameObject[] _players;
     GameObject _sphere;
+    public ProjectileStandard _standardProjectile;
+    public ProjectileReverse _reverseProjectile;
     // Use this for initialization
     void Start ()
     {
@@ -29,6 +31,25 @@ public class ProjectileTower : TurretBase
     {
         Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
         _sphere.transform.LookAt(correctTarget);
+        switch (TowerType)
+        {
+            case ETower.StandardCannon:
+                {
+                    ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _sphere.transform.position, _sphere.transform.rotation);
+                    projectile.OnSpawnMove();
+                    break;
+                }
+            case ETower.Reverse:
+                {
+                    ProjectileReverse projectile = (ProjectileReverse)Instantiate(_reverseProjectile, _sphere.transform.position, _sphere.transform.rotation);
+                    projectile.OnSpawnMove();
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 
     public GameObject FollowClosestPlayer()
