@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        cam = gameObject.GetComponentInChildren<Camera>();
+        cam = gameObject.GetComponent<Camera>();
     }
 
     public void SetUpCameraSize(GamePad.Index pNumber, bool fullScreen)
