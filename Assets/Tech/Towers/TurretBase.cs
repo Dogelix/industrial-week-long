@@ -8,7 +8,9 @@ public class TurretBase : MonoBehaviour, ITower
     [SerializeField]
     ETower _towerType;
     GamePad.Index _ownedByPlayer;
+    [SerializeField]
     protected int _health = 8;
+    int _tickCount = 0;
 
     public GamePad.Index OwnedByPlayer
     {
@@ -33,12 +35,21 @@ public class TurretBase : MonoBehaviour, ITower
     public virtual void Tick()
     {
         //do things
-        DecrementHealth();
+        if ((_tickCount % 2) == 0)
+        {
+            DecrementHealth();
+        }
+        _tickCount++;
     }
 
     void DecrementHealth()
     {
         _health--;
+        if (_health == 0)
+        {
+            this.Find<TowerManager>(GameTags.ScriptM).RemoveTowerFromList(gameObject);
+            Destroy(gameObject);
+        }
         //Swap out sprite here
     }
 }
