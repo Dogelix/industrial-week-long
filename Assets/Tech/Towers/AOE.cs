@@ -19,7 +19,6 @@ public class AOE : TurretBase
 
     public override void Tick()
     {
-        Debug.Log("TICK");
         //Do AOE
         AreaOfEffect();
         base.Tick();
@@ -27,7 +26,6 @@ public class AOE : TurretBase
 
     void AreaOfEffect()
     {
-        Debug.Log("AOE");
         //Can tweak the radius (5) or put it in a variable later on when we know how far it will reach
         Collider[] hitPlayers = Physics.OverlapSphere(transform.position, _radius);
         //Do slow down effect on players, method name can be changed or code can be changed from SendMessage if needed
@@ -36,7 +34,7 @@ public class AOE : TurretBase
             if (player.tag == GameTags.Player)
             {
                 Debug.Log("Player slowed");
-                player.SendMessage("SlowDown", true, _slowTime);
+                player.gameObject.GetComponent<PlayerInput>().SlowDown(true, _slowTime);
             }
         }
     }
