@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour {
 
@@ -19,7 +17,7 @@ public class ProjectileBase : MonoBehaviour {
 
     }
 
-    public virtual void DealDamage()
+    public virtual void DealDamage(Collider playerHit)
     {
 
     }

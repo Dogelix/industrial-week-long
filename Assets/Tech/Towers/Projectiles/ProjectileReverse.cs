@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using Utilites;
 
-public class ProjectileStandard : ProjectileBase
+public class ProjectileReverse : ProjectileBase
 {
-    int _damage;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +25,6 @@ public class ProjectileStandard : ProjectileBase
 
     public override void DealDamage(Collider playerHit)
     {
-        //Do damage method on player
+        playerHit.gameObject.GetComponent<PlayerInput>().Reverse(true);
     }
 }
