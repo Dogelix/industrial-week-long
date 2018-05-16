@@ -25,14 +25,14 @@ public class TowerManager : MonoBehaviour
     public void SpawnTower(GameObject tower, GamePad.Index owner)
     {
         int rand = -1;
-
-        while (rand < 0 || _towers[rand].GetComponent<InUse>().Free == false)
+        rand = Random.Range(0, _spawnLocations.Length);
+        while (_spawnLocations[rand].GetComponent<InUse>().Free == false)
         {
             rand = Random.Range(0, _spawnLocations.Length);
-        }      
-        
+        }
+
         GameObject temp = Instantiate(tower, _spawnLocations[rand].transform);
-        _towers[rand].GetComponent<InUse>().Free = false;
+        _spawnLocations[rand].GetComponent<InUse>().Free = false;
 
         temp.GetComponent<ITower>().OwnedByPlayer = owner;
 

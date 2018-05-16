@@ -25,24 +25,31 @@ public class ProjectileTower : TurretBase
     {
         base.Tick();
         //Do projectile for static tower
+        if (TowerType == ETower.StaticCannon)
+        {
+            ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _sphere.transform.position, _sphere.transform.rotation);
+            projectile.OnSpawnMove(4);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
-        _sphere.transform.LookAt(correctTarget);
         switch (TowerType)
         {
             case ETower.StandardCannon:
                 {
+                    Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
+                    _sphere.transform.LookAt(correctTarget);
                     ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _sphere.transform.position, _sphere.transform.rotation);
-                    projectile.OnSpawnMove();
+                    projectile.OnSpawnMove(1);
                     break;
                 }
             case ETower.Reverse:
                 {
+                    Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
+                    _sphere.transform.LookAt(correctTarget);
                     ProjectileReverse projectile = (ProjectileReverse)Instantiate(_reverseProjectile, _sphere.transform.position, _sphere.transform.rotation);
-                    projectile.OnSpawnMove();
+                    projectile.OnSpawnMove(0);
                     break;
                 }
             default:

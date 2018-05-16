@@ -3,6 +3,7 @@ using Utilites;
 
 public class ProjectileBase : MonoBehaviour
 {
+    protected int _damage;
 	// Use this for initialization
 	void Start ()
     {
@@ -15,13 +16,14 @@ public class ProjectileBase : MonoBehaviour
 		
 	}
 
-    public virtual void OnSpawnMove()
+    public virtual void OnSpawnMove(int damage)
     {
 
     }
 
-    public virtual void DealDamage(Collider playerHit)
+    public void DealDamage(Collider playerHit)
     {
-
+        //Damage method on player
+        //based on ETower, deal correct damage, if reverse tower do reverse, default break
     }
 }

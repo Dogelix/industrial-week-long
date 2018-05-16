@@ -22,9 +22,4 @@ public class ProjectileReverse : ProjectileBase
             DealDamage(other);
         }
     }
-
-    public override void DealDamage(Collider playerHit)
-    {
-        playerHit.gameObject.GetComponent<PlayerInput>().Reverse(true);
-    }
 }

@@ -3,7 +3,6 @@ using Utilites;
 
 public class ProjectileStandard : ProjectileBase
 {
-    int _damage;
 	// Use this for initialization
 	void Start ()
     {
@@ -22,10 +21,5 @@ public class ProjectileStandard : ProjectileBase
         {
             DealDamage(other);
         }
-    }
-
-    public override void DealDamage(Collider playerHit)
-    {
-        //Do damage method on player
     }
 }

@@ -5,6 +5,7 @@ using Utilites;
 
 public class TurretBase : MonoBehaviour, ITower
 {
+    [SerializeField]
     ETower _towerType;
     GamePad.Index _ownedByPlayer;
     protected int _health = 8;
