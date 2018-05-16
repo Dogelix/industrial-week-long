@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        gameObject.GetComponent<CameraController>().SetUpCameraSize(_playerNumber, false);
+        gameObject.GetComponentInChildren<CameraController>().SetUpCameraSize(_playerNumber, false);
     }
 	
 	// Update is called once per frame
@@ -67,17 +67,17 @@ public class PlayerInput : MonoBehaviour
 
             if (_isSlowed)
                 step = step / 2;
+
+            float rotation;
+            if (!_isReversed)
+                rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
+            else
+                rotation = -GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
+
+            transform.Rotate(Vector3.up, rotation * _rotationForce);
         }
-
-        float rotation;
-        if (!_isReversed)
-            rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
-        else
-            rotation = -GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
-
-        transform.Rotate(Vector3.up, rotation * _rotationForce);
-        transform.Translate(0, 0, 1 * step);
         
+        transform.Translate(0, 0, 1 * step);   
     }
 
     private IEnumerator StartWaitForReverse(float time)
