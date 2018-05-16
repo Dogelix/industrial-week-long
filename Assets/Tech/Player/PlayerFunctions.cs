@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class PlayerFunctions : MonoBehaviour
 {
+    [SerializeField]
     private GameObject _checkPoint;
     private int _lap;
 

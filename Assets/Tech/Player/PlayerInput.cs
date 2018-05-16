@@ -10,9 +10,12 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float _rotationForce = 1.0f;
     [SerializeField]
+    private float _maxTilt;
+    [SerializeField]
     private GamePad.Index _playerNumber;
-    
+
     private bool _isReversed = false;
+    private bool _isSlowed = false;
 
     [SerializeField]
     //Inventory Stuff
@@ -47,6 +50,13 @@ public class PlayerInput : MonoBehaviour
             StartCoroutine(StartWaitForReverse(2));
     }
 
+    public void SlowDown(bool towerHit, float length)
+    {
+        _isSlowed = !_isSlowed;
+        if (towerHit)
+            StartCoroutine(StartWaitForSlow(length));
+    }
+
     private void Movement()
     {
         float step = 0;
@@ -54,6 +64,9 @@ public class PlayerInput : MonoBehaviour
         if (trig > 0)
         {
             step = trig * _speed * Time.deltaTime;
+
+            if (_isSlowed)
+                step = step / 2;
         }
 
         float rotation;
@@ -61,6 +74,7 @@ public class PlayerInput : MonoBehaviour
             rotation = GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
         else
             rotation = -GamePad.GetAxis(GamePad.Axis.LeftStick, _playerNumber).x;
+
         transform.Rotate(Vector3.up, rotation * _rotationForce);
         transform.Translate(0, 0, 1 * step);
         
@@ -70,6 +84,12 @@ public class PlayerInput : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Reverse(false);
+    }
+
+    private IEnumerator StartWaitForSlow(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SlowDown(false, 0.0f);
     }
     #endregion
 
