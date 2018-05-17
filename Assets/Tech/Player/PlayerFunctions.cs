@@ -74,8 +74,7 @@ public class PlayerFunctions : MonoBehaviour
 
     public void IncrementCheckpointCounter(GameObject point)
     {
-        if(_checkPoint != point)
-            _checkpointCounter++;
+        _checkpointCounter++;
     }
 
     public void ResetCheckpointCounter()
