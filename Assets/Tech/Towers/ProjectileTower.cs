@@ -24,6 +24,11 @@ public class ProjectileTower : TurretBase
                     _spawn = transform.Find("Top/ProjectileSpawn").gameObject;
                     break;
                 }
+            case ETower.StaticCannon:
+                {
+                    _spawn = transform.Find("ProjectileSpawn").gameObject;
+                    break;
+                }
             case ETower.Reverse:
                 {
                     _reverseTop = transform.Find("Top").gameObject;

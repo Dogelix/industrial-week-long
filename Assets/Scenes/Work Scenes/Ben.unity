@@ -198,7 +198,7 @@ Prefab:
         type: 2}
       propertyPath: _towers.Array.data[0]
       value: 
-      objectReference: {fileID: 1744891709487214, guid: e4c4be08748be734f8300fea2b533495,
+      objectReference: {fileID: 1544372232257178, guid: 374c1e36ac0afcf45ae8717c3b30b289,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91336a57724b6384fa4052f22322531a, type: 2}
