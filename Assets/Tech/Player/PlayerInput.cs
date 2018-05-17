@@ -18,6 +18,8 @@ public class PlayerInput : MonoBehaviour
     private bool _isReversed = false;
     private bool _isSlowed = false;
 
+    private IGUIController _ui;
+
     [SerializeField]
     //Inventory Stuff
     private GameObject[] _towers = new GameObject[4] { null, null, null, null };
@@ -27,6 +29,7 @@ public class PlayerInput : MonoBehaviour
     {
         gameObject.GetComponentInChildren<CameraController>().SetUpCameraSize(_playerNumber, false);
         _rigidbody = GetComponent<Rigidbody>();
+        _ui = GetComponentInChildren<IGUIController>();
     }
 	
 	// Update is called once per frame
@@ -107,7 +110,8 @@ public class PlayerInput : MonoBehaviour
             if(_towers[i] == null)
             {
                 _towers[i] = tower;
-                break;
+                _ui.SetInventoryImages(tower.GetComponent<ITower>().TowerType, i);
+                return;
             }
         }
     }
@@ -115,6 +119,7 @@ public class PlayerInput : MonoBehaviour
     private void RemoveTower(int location)
     {
         _towers[location] = null;
+        _ui.SetInventoryImages(ETower.NULL, location);
     }
 
     private void CheckForTowerPlace()
@@ -133,7 +138,7 @@ public class PlayerInput : MonoBehaviour
         if (i <= 3 && _towers[i] != null)
         {
             GameObject temp = _towers[i];
-            _towers[i] = null;
+            RemoveTower(i);
             TowerManager tM = this.Find<TowerManager>(GameTags.ScriptM);
             tM.SpawnTower(temp, _playerNumber);            
         }
