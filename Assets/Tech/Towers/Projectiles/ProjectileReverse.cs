@@ -6,7 +6,7 @@ public class ProjectileReverse : ProjectileBase
     // Use this for initialization
     void Start()
     {
-
+        _type = ETower.Reverse;
     }
 
     // Update is called once per frame
@@ -21,5 +21,10 @@ public class ProjectileReverse : ProjectileBase
         {
             DealDamage(other);
         }
+    }
+
+    protected override void DealDamage(Collider playerHit)
+    {
+        base.DealDamage(playerHit);
     }
 }

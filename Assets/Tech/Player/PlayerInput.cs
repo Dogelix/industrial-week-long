@@ -57,7 +57,7 @@ public class PlayerInput : MonoBehaviour
     {
         _isReversed = !_isReversed;
         if (towerHit)
-            StartCoroutine(StartWaitForReverse(2));
+            StartCoroutine(StartWaitForReverse(4));
     }
 
     public void SlowDown(bool towerHit, float length)
