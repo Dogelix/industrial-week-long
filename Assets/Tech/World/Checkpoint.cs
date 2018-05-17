@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
             PlayerFunctions pFunc = other.gameObject.GetComponent<PlayerFunctions>();
 
             pFunc.CheckPoint = gameObject;
+            pFunc.IncrementCheckpointCounter(gameObject);
         }
     }
 }

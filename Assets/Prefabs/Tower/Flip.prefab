@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4899383226456950}
   - component: {fileID: 33294711516823372}
   - component: {fileID: 23642932316025408}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NurbsCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4529592115943126}
   - component: {fileID: 33019002257767876}
   - component: {fileID: 23173218676123706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4119626013168010}
   - component: {fileID: 33328880518943740}
   - component: {fileID: 23500785954578182}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4615977576325038}
   - component: {fileID: 114300328414000718}
   - component: {fileID: 135913394644644852}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4953117014351414}
   - component: {fileID: 33692607407468490}
   - component: {fileID: 23142091642047746}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4304508778026590}
   - component: {fileID: 33724743076515542}
   - component: {fileID: 23134390802687854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NurbsPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4493213023140934}
   - component: {fileID: 33459323335581364}
   - component: {fileID: 23981859484090890}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
