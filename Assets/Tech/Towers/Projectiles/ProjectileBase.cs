@@ -54,13 +54,10 @@ public class ProjectileBase : MonoBehaviour
         switch (_type)
         {
             case ETower.StandardCannon:
-                {
-                    //Do damage with _damage
-                    break;
-                }
             case ETower.StaticCannon:
                 {
                     //Do damage with _damage
+                    playerHit.gameObject.GetComponent<PlayerFunctions>().ApplyDamage(_damage);
                     break;
                 }
             case ETower.Reverse:

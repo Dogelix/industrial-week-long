@@ -5,13 +5,20 @@ using Utilities;
 
 public class StartEndScript : MonoBehaviour
 {
+    private CheckpointManager checkpointManager;
+
+    private void Start()
+    {
+        checkpointManager = this.Find<CheckpointManager>(GameTags.ScriptM);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(GameTags.Player))
+        if (other.tag == GameTags.Player)
         {
             PlayerFunctions playerFunctions = other.gameObject.GetComponent<PlayerFunctions>();
 
-            if (playerFunctions.CheckpointCounter == this.Find<CheckpointManager>(GameTags.ScriptM).AmountOfCheckPoints - 1)
+            if (playerFunctions.CheckpointCounter == checkpointManager.AmountOfCheckPoints)
             {
                 playerFunctions.IncrementLap();
                 playerFunctions.CheckPoint = gameObject;

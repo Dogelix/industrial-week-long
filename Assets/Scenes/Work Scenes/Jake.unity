@@ -919,6 +919,11 @@ Prefab:
       propertyPath: m_PlaneDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 54788114784021860, guid: 91336a57724b6384fa4052f22322531a,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91336a57724b6384fa4052f22322531a, type: 2}
   m_IsPrefabParent: 0

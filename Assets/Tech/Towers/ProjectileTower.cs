@@ -49,7 +49,7 @@ public class ProjectileTower : TurretBase
         if (TowerType == ETower.StaticCannon)
         {
             ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _spawn.transform.position, _spawn.transform.rotation);
-            projectile.Type = ETower.StandardCannon;
+            projectile.Type = ETower.StaticCannon;
             projectile.OnSpawnMove(4);
         }
     }
@@ -76,7 +76,7 @@ public class ProjectileTower : TurretBase
                         Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _reverseTop.transform.position.y, FollowClosestPlayer().transform.position.z);
                         _reverseTop.transform.LookAt(correctTarget);
                         ProjectileReverse rProjectile = (ProjectileReverse)Instantiate(_reverseProjectile, _spawn.transform.position, _spawn.transform.rotation);
-                        rProjectile.Type = ETower.StandardCannon;
+                        rProjectile.Type = ETower.Reverse;
                         rProjectile.OnSpawnMove(0);
                         _isDelaying = true;
                         StartCoroutine(WaitSeconds(1f));

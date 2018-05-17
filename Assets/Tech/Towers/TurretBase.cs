@@ -35,11 +35,11 @@ public class TurretBase : MonoBehaviour, ITower
     public virtual void Tick()
     {
         //do things
-        if ((_tickCount % 2) == 0)
-        {
-            DecrementHealth();
-        }
-        _tickCount++;
+        //if ((_tickCount % 2) == 0)
+        //{
+        //    DecrementHealth();
+        //}
+        //_tickCount++;
     }
 
     void DecrementHealth()
