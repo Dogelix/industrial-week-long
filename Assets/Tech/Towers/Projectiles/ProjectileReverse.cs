@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Utilites;
+using Utilities;
 
 public class ProjectileReverse : ProjectileBase
 {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utilites
+namespace Utilities
 {
     public class GameTags : MonoBehaviour
     {
