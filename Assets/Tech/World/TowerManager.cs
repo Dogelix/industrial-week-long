@@ -10,7 +10,7 @@ public class TowerManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("DoTick", 0.0f, 1.0f);
+        InvokeRepeating("DoTick", 0.0f, 3.0f);
         _spawnLocations = GameObject.FindGameObjectsWithTag(GameTags.SpawnTower);
     }
 
