@@ -68,7 +68,7 @@ public class ProjectileTower : TurretBase
                         sProjectile.Type = ETower.StandardCannon;
                         sProjectile.OnSpawnMove(1);
                         _isDelaying = true;
-                        StartCoroutine(WaitSeconds(0.1f));
+                        StartCoroutine(WaitSeconds(1));
                         break;
                     }
                 case ETower.Reverse:
@@ -79,7 +79,7 @@ public class ProjectileTower : TurretBase
                         rProjectile.Type = ETower.StandardCannon;
                         rProjectile.OnSpawnMove(0);
                         _isDelaying = true;
-                        StartCoroutine(WaitSeconds(0.1f));
+                        StartCoroutine(WaitSeconds(1f));
                         break;
                     }
                 default:

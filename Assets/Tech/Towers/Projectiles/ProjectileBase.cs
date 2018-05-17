@@ -5,7 +5,7 @@ using Utilities;
 public class ProjectileBase : MonoBehaviour
 {
     protected int _damage;
-    ETower _type;
+    protected ETower _type;
     Rigidbody _body;
 
     public ETower Type
@@ -46,8 +46,9 @@ public class ProjectileBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void DealDamage(Collider playerHit)
+    protected virtual void DealDamage(Collider playerHit)
     {
+        Debug.Log("do we even get here?");
         //Damage method on player
         //based on ETower, deal correct damage, if reverse tower do reverse, default break
         switch (_type)
@@ -64,6 +65,7 @@ public class ProjectileBase : MonoBehaviour
                 }
             case ETower.Reverse:
                 {
+                    Debug.Log("is this called?");
                     playerHit.gameObject.GetComponent<PlayerInput>().Reverse(true);
                     break;
                 }
