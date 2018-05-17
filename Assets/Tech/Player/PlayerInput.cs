@@ -39,6 +39,10 @@ public class PlayerInput : MonoBehaviour
 
     public GamePad.Index PlayerNumber
     {
+        get
+        {
+            return _playerNumber;
+        }
         set
         {
             _playerNumber = value;
