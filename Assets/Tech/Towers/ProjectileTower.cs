@@ -6,7 +6,8 @@ using Utilities;
 public class ProjectileTower : TurretBase
 {
     GameObject[] _players;
-    GameObject _sphere;
+    GameObject _standardTop;
+    GameObject _reverseTop;
     GameObject _spawn;
     public ProjectileStandard _standardProjectile;
     public ProjectileReverse _reverseProjectile;
@@ -15,7 +16,24 @@ public class ProjectileTower : TurretBase
     void Start ()
     {
         _players = GameObject.FindGameObjectsWithTag(GameTags.Player);
-        _sphere = transform.Find("Top").gameObject;
+        switch (TowerType)
+        {
+            case ETower.StandardCannon:
+                {
+                    _standardTop = transform.Find("Top").gameObject;
+                    break;
+                }
+            case ETower.Reverse:
+                {
+                    _reverseTop = transform.Find("Cube.002/Cube").gameObject;
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+        
         _spawn = transform.Find("Top/ProjectileSpawn").gameObject;
     }
 	
@@ -44,24 +62,24 @@ public class ProjectileTower : TurretBase
             {
                 case ETower.StandardCannon:
                     {
-                        Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
-                        _sphere.transform.LookAt(correctTarget);
+                        Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _standardTop.transform.position.y, FollowClosestPlayer().transform.position.z);
+                        _standardTop.transform.LookAt(correctTarget);
                         ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _spawn.transform.position, _spawn.transform.rotation);
                         projectile.Type = ETower.StandardCannon;
                         projectile.OnSpawnMove(1);
                         _isDelaying = true;
-                        StartCoroutine(WaitSeconds(0.5f));
+                        StartCoroutine(WaitSeconds(0.1f));
                         break;
                     }
                 case ETower.Reverse:
                     {
-                        Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
-                        _sphere.transform.LookAt(correctTarget);
+                        Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _reverseTop.transform.position.y, FollowClosestPlayer().transform.position.z);
+                        _standardTop.transform.LookAt(correctTarget);
                         ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _spawn.transform.position, _spawn.transform.rotation);
                         projectile.Type = ETower.StandardCannon;
                         projectile.OnSpawnMove(0);
                         _isDelaying = true;
-                        StartCoroutine(WaitSeconds(0.5f));
+                        StartCoroutine(WaitSeconds(0.1f));
                         break;
                     }
                 default:

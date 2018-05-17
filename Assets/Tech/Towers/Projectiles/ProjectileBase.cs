@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Utilities;
 
 public class ProjectileBase : MonoBehaviour
@@ -22,6 +23,7 @@ public class ProjectileBase : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+
 	}
 	
 	// Update is called once per frame
@@ -34,7 +36,14 @@ public class ProjectileBase : MonoBehaviour
     {
         _body = GetComponent<Rigidbody>();
         _damage = damage;
-        _body.velocity = transform.forward * 5;
+        _body.velocity = transform.forward * 20;
+        StartCoroutine(KillProjectile());
+    }
+
+    IEnumerator KillProjectile()
+    {
+        yield return new WaitForSecondsRealtime(5.0f);
+        Destroy(gameObject);
     }
 
     public void DealDamage(Collider playerHit)
