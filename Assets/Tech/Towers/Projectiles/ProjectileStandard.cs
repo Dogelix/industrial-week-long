@@ -22,4 +22,9 @@ public class ProjectileStandard : ProjectileBase
             DealDamage(other);
         }
     }
+
+    protected override void DealDamage(Collider playerHit)
+    {
+        base.DealDamage(playerHit);
+    }
 }
