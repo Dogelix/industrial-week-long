@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-namespace Utilites
+namespace Utilities
 {
     public static class Extensions
     {

@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Utilites
+namespace Utilities
 {
 
     public static class GamePad

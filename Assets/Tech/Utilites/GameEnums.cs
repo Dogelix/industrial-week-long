@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utilites
+namespace Utilities
 {
     public enum ETower
     {
         Freeze,
         StaticCannon,
         StandardCannon,
-        Reverse
+        Reverse,
+        NULL
     }
 }
