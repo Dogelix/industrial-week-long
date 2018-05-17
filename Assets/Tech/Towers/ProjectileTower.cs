@@ -21,11 +21,13 @@ public class ProjectileTower : TurretBase
             case ETower.StandardCannon:
                 {
                     _standardTop = transform.Find("Top").gameObject;
+                    _spawn = transform.Find("Top/ProjectileSpawn").gameObject;
                     break;
                 }
             case ETower.Reverse:
                 {
                     _reverseTop = transform.Find("Cube.002/Cube").gameObject;
+                    _spawn = transform.Find("Cube.002/Cube/ProjectileSpawn").gameObject;
                     break;
                 }
             default:
@@ -33,8 +35,6 @@ public class ProjectileTower : TurretBase
                     break;
                 }
         }
-        
-        _spawn = transform.Find("Top/ProjectileSpawn").gameObject;
     }
 	
 	// Update is called once per frame
@@ -75,7 +75,7 @@ public class ProjectileTower : TurretBase
                     {
                         Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _reverseTop.transform.position.y, FollowClosestPlayer().transform.position.z);
                         _standardTop.transform.LookAt(correctTarget);
-                        ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _spawn.transform.position, _spawn.transform.rotation);
+                        ProjectileReverse projectile = (ProjectileReverse)Instantiate(_reverseProjectile, _spawn.transform.position, _spawn.transform.rotation);
                         projectile.Type = ETower.StandardCannon;
                         projectile.OnSpawnMove(0);
                         _isDelaying = true;
