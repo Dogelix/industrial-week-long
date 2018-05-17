@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4471997505819050}
   - component: {fileID: 33378764753799422}
   - component: {fileID: 23871575222145866}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BezierCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4588586140155934}
   - component: {fileID: 33323990524472984}
   - component: {fileID: 23561254322848072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4482288891656788}
   - component: {fileID: 33610407438936402}
   - component: {fileID: 23563006806184814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BezierCurve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4489615722259096}
   - component: {fileID: 33236381814312450}
   - component: {fileID: 23423432391733726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885615364181802}
   - component: {fileID: 114722974349813372}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerType: 1
+  _health: 8
   _standardProjectile: {fileID: 114148008324397744, guid: 899c693383d3572489584e2d2e255448,
     type: 2}
   _reverseProjectile: {fileID: 114605912706353124, guid: 26742ae23d9fbd5488718aa040440f78,

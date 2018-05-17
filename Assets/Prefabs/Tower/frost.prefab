@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4493537656261836}
   - component: {fileID: 33413831460695434}
   - component: {fileID: 23177108691890774}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517576725719126}
   - component: {fileID: 114854081979270362}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4330455224817422}
   - component: {fileID: 33881736774608390}
   - component: {fileID: 23673337941446122}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,3 +195,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafa916b02bf11347bb1f3623d080ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _towerType: 0
+  _health: 8

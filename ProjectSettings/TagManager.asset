@@ -8,6 +8,8 @@ TagManager:
   - ScriptManager
   - SpawnBox
   - SpawnTower
+  - Checkpoint
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Player2
   - Player3
   - Player4
-  - 
+  - Objects
   - 
   - 
   - 

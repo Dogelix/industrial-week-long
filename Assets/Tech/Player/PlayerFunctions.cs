@@ -12,24 +12,14 @@ public class PlayerFunctions : MonoBehaviour
 {
     [SerializeField]
     private GameObject _checkPoint;
-    private int _lap;
+    private int _lap = 1;
+    private int _checkpointCounter;
     private int _health = 8;
     private int _position = 1;
 
     private IGUIController _ui;
 
-    public int Lap
-    {
-        get
-        {
-            return _lap;
-        }
-        set
-        {
-            _lap = value;
-            _ui.SetLap(_lap);
-        }
-    }
+    #region Basic Properties and Damage
 
     public int Position
     {
@@ -63,6 +53,42 @@ public class PlayerFunctions : MonoBehaviour
 
         _ui.SetHealth(_health);
     }
+    #endregion
+
+    #region Laps
+
+    public void IncrementLap()
+    {
+        _lap++;
+        ResetCheckpointCounter();
+        _ui.SetLap(_lap);
+    }
+
+    public int CheckpointCounter
+    {
+        get
+        {
+            return _checkpointCounter;
+        }
+    }
+
+    public void IncrementCheckpointCounter(GameObject point)
+    {
+        if(_checkPoint != point)
+            _checkpointCounter++;
+    }
+
+    public void ResetCheckpointCounter()
+    {
+        _checkpointCounter = 0;
+    }
+
+    public void ResetLaps()
+    {
+        _lap = 1;
+    }
+
+    #endregion
 
     public void Respawn()
     {

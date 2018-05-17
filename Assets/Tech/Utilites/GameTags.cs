@@ -9,5 +9,7 @@ namespace Utilities
         public const string ScriptM = "ScriptManager";
         public const string SpawnTower = "SpawnTower";
         public const string SpawnBox = "SpawnBox";
+        public const string Checkpoint = "Checkpoint";
+        public const string Finish = "FinishLine";
     }
 }
