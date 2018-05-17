@@ -5,6 +5,7 @@ public class ProjectileBase : MonoBehaviour
 {
     protected int _damage;
     ETower _type;
+    Rigidbody _body;
 
     public ETower Type
     {
@@ -21,7 +22,7 @@ public class ProjectileBase : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-
+        _body = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,7 @@ public class ProjectileBase : MonoBehaviour
 
     public virtual void OnSpawnMove(int damage)
     {
-
+        _body.velocity = transform.forward * 5;
     }
 
     public void DealDamage(Collider playerHit)
