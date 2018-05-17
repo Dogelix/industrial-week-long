@@ -28,6 +28,7 @@ public class ProjectileTower : TurretBase
         if (TowerType == ETower.StaticCannon)
         {
             ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _sphere.transform.position, _sphere.transform.rotation);
+            projectile.Type = ETower.StaticCannon;
             projectile.OnSpawnMove(4);
         }
     }
@@ -41,6 +42,7 @@ public class ProjectileTower : TurretBase
                     Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
                     _sphere.transform.LookAt(correctTarget);
                     ProjectileStandard projectile = (ProjectileStandard)Instantiate(_standardProjectile, _sphere.transform.position, _sphere.transform.rotation);
+                    projectile.Type = ETower.StandardCannon;
                     projectile.OnSpawnMove(1);
                     break;
                 }
@@ -49,6 +51,7 @@ public class ProjectileTower : TurretBase
                     Vector3 correctTarget = new Vector3(FollowClosestPlayer().transform.position.x, _sphere.transform.position.y, FollowClosestPlayer().transform.position.z);
                     _sphere.transform.LookAt(correctTarget);
                     ProjectileReverse projectile = (ProjectileReverse)Instantiate(_reverseProjectile, _sphere.transform.position, _sphere.transform.rotation);
+                    projectile.Type = ETower.Reverse;
                     projectile.OnSpawnMove(0);
                     break;
                 }
@@ -68,7 +71,7 @@ public class ProjectileTower : TurretBase
         foreach (GameObject player in _players)
         {
             temp = Vector3.Distance(player.transform.position, transform.position);
-            if (temp < curDistance)
+            if (temp < curDistance /*&& (!OwnedByPlayer == player.GetComponent<PlayerInput>().PlayerNumber)*/)
             {
                 closest = player;
                 curDistance = temp;

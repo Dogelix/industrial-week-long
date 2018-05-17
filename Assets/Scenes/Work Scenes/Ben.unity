@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &933056900
 Prefab:
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerType: 0
+  _health: 8
 --- !u!23 &1243414008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -492,7 +493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1598125797
 Prefab:
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerType: 0
+  _health: 8
   _standardProjectile: {fileID: 0}
   _reverseProjectile: {fileID: 0}
 --- !u!23 &2037601895
@@ -733,7 +735,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4198593304728894, guid: d4e2bd407f777d045972a8eba44ffbc5, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4e2bd407f777d045972a8eba44ffbc5, type: 2}
@@ -775,7 +777,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4529543304313816, guid: 87166dc669863a84b91281f9752f3b94, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1600882905381650, guid: 87166dc669863a84b91281f9752f3b94, type: 2}
       propertyPath: m_IsActive
